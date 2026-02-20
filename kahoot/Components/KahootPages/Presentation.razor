@@ -19,9 +19,11 @@ else
     public string? QuizId { get; set; }
     Quiz quiz;
 
-    void OnParameterSet()
+
+    protected override void OnParametersSet()
     {
-        if (QuizId == null)
+        Console.WriteLine(QuizId);
+        if (QuizId != null)
         {
             quiz = manager.GetQuizByID(QuizId);
         }

@@ -6,8 +6,8 @@ using Models.Quiz;
 public class QuizManager
 {
     private Quiz quiz = new Quiz();
-    private List<Quiz>? quizzes;
-    private List<Question>? questions;
+    private List<Quiz>? quizzes = new();
+    private List<Question>? questions = new();
     private int currQuestion = 0;
 
     public void initialize()
