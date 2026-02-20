@@ -1,6 +1,7 @@
 @rendermode InteractiveServer
-@page "/quiz/{QuestionId}"
+@page "/quiz/{QuizId}/{QuestionId}"
 @using Models.Questions
+@using Models.Quiz
 @inject QuizManager manager;
 
 <h1>här ska frågorna presenteras</h1>
@@ -21,17 +22,20 @@ else
 {
     [Parameter]
     public string? QuestionId { get; set; }
+    public string? QuizId { get; set; }
     Question? Question;
+    Quiz? Quiz;
 
     protected override void OnParametersSet()
     {
-        Question = manager.GetCurrentQuestion();
         QuestionId = Question.ID;
+        Quiz = manager.GetQuizByID(QuizId);
     }
 
     public void Submit()
     {
         Console.WriteLine("Submit answer");
+
         manager.NextQuestion();
     }
 }
