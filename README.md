@@ -1,2 +1,0 @@
-# QuestionnareGroup
-School group project
