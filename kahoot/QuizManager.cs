@@ -5,8 +5,8 @@ using Models.Quiz;
 
 public class QuizManager
 {
-    private Quiz quiz = new Quiz();
-    private List<Quiz>? quizzes = new();
+    private Quiz quiz = new Quiz("init", "init");
+    private Dictionary<string, Quiz> quizzes = new();
     private List<Question>? questions = new();
     private int currQuestion = 0;
 
@@ -22,25 +22,14 @@ public class QuizManager
         quiz.Questions.Add(new Question(id, "Second Question", 2));
         quiz.Questions.Add(new Question(id, "Third Question", 3));
         quiz.Questions.Add(new Question(id, "Fourth Question", 4));
-        quizzes.Add(quiz);
+        quizzes[quiz.ID] = quiz;
     }
 
-    public Quiz GetQuizByID(string id)
-    {
-        foreach (var quiz in quizzes)
-        {
-            if (quiz.ID == id)
-            {
-                quiz.Title = id;
-                return quiz;
-            }
-        }
-        return null;
-    }
+    public Quiz? GetQuizByID(string id) => quizzes[id];
 
-    public void SubmitAnswer(Participant participant)
+    public void SubmitAnswer(Participant participant, string questionID, int answer)
     {
-
+        if (participant.AnswerIndex == quizzes[""].Questions[0].)
     }
 
     public void NextQuestion(Quiz quiz)
