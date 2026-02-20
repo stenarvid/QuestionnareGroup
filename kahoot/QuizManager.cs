@@ -32,7 +32,7 @@ public class QuizManager
         if (participant.AnswerIndex == quizzes[""].Questions[0].)
     }
 
-    public void NextQuestion(Quiz quiz)
+    public void NextQuestion()
     {
 
     }
