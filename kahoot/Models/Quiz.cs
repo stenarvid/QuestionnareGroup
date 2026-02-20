@@ -2,7 +2,7 @@ using Models.Questions;
 
 namespace Models.Quiz;
 
-public class Quiz
+public class Quiz()
 {
     public string ID { get; set; }
     public string Title { get; set; }
