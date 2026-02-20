@@ -43,5 +43,6 @@ else
         Console.WriteLine("Submit answer");
         manager.NextQuestion(QuizId);
         Question = Quiz.Questions[Quiz.CurrentQuestion];
+        StateHasChanged();
     }
 }

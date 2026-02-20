@@ -28,7 +28,18 @@ public class QuizManager
                 new List<string>() { "Bertil", "John", "Göran", "Sara" },
                 1
             )
-);
+
+        );
+
+        quiz.Questions.Add(
+            new Question
+            (
+                id,
+                "Second Question",
+                new List<string>() { "Bertil", "John", "Göran", "Sara" },
+                2 
+            )
+        );
 
         quizzes[quiz.ID] = quiz;
     }
@@ -56,5 +67,8 @@ public class QuizManager
             quizzes[QuizId].CurrentQuestion++;
             OnStateChanged?.Invoke();
         }
+        //currQuestion++;
+        //quizzes[QuizId].CurrentQuestion++;
+        //OnStateChanged?.Invoke();
     }
 }
