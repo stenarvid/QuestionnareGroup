@@ -1,11 +1,17 @@
 @rendermode InteractiveServer
 @page "/quiz/{Id:int}/present"
+@using Models.Quiz
 @inject QuizManager manager;
 
-
-<h1>här visas resultatet av quiz frågan</h1>
+<h1>Quiz: @manager.GetQuiz(new Quiz()).Title</h1>
 
 @code
 {
+    [Parameter]
+    public string? QuizId { get; set; }
 
+    void OnParameterSet()
+    {
+
+    }
 }
