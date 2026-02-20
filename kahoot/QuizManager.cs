@@ -10,12 +10,18 @@ public class QuizManager
     private List<Question>? questions = new();
     private int currQuestion = 0;
 
+    public event Action? OnStateChanged;
+
     public void initialize(string id)
     {
         quiz.ID = id;
         quiz.Title = " ";
         quiz.Questions = questions;
         quiz.CurrentQuestion = 0;
+        quiz.Questions.Add(new Question(id, "First Question", 1));
+        quiz.Questions.Add(new Question(id, "Second Question", 2));
+        quiz.Questions.Add(new Question(id, "Third Question", 3));
+        quiz.Questions.Add(new Question(id, "Fourth Question", 4));
         quizzes.Add(quiz);
     }
 
@@ -25,7 +31,7 @@ public class QuizManager
         {
             if (quiz.ID == id)
             {
-                quiz.Title = "HundShow";
+                quiz.Title = id;
                 return quiz;
             }
         }

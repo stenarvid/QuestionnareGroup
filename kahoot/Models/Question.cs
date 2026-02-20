@@ -1,7 +1,7 @@
 
 namespace Models.Questions
 {
-    public class Question
+    public class Question(string _id, string _text, int _correctAnswer)
     {
         string ID;
         string Text;
