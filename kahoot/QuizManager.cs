@@ -1,21 +1,21 @@
+using Models.Participant;
+using Models.Questions;
 using Models.Quiz;
 
 public class QuizManager
 {
-    public Quiz GetQuiz()
+    public Quiz GetQuiz(Quiz quiz)
     {
-
         // TODO: handle getting quiz here
-
-        return null; // return the quiz
+        return quiz; // return the quiz
     }
 
-    public void SubmitAnswer()
+    public void SubmitAnswer(Participant participant)
     {
-
+        
     }
 
-    public void NextQuestion()
+    public void NextQuestion(List<Question> questions)
     {
 
     }
