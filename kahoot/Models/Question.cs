@@ -3,10 +3,10 @@ namespace Models.Questions
 {
     public class Question(string _id, string _text, List<string> _choices, int _correctAnswer)
     {
-        string ID = _id;
-        string Text = _id;
-        List<string> QuizChoices = _choices;
-        int CorrectAnswer;
+        public string ID = _id;
+        public string Text = _id;
+        public List<string> QuizChoices = _choices;
+        public int CorrectAnswer;
     }
 }
 
