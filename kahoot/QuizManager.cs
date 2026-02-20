@@ -8,12 +8,15 @@ public class QuizManager
     private List<Question>? questions;
     private int currQuestion = 0;
 
+
+
     public Quiz GetQuizByID(string id)
     {
         foreach (var quiz in quizzes)
         {
             if (quiz.ID == id)
             {
+                quiz.Title = "Hej";
                 return quiz;
             }
         }
