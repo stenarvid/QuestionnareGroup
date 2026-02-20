@@ -1,14 +1,12 @@
 
 namespace Models.Questions
 {
-    public class Question(string _id, string _text, int _correctAnswer)
+    public class Question(string _id, string _text, List<string> _choices, int _correctAnswer)
     {
-        string ID;
-        string Text;
-        Dictionary<string, int> Choices;
-        Dictionary<int, string> Answers;
+        string ID = _id;
+        string Text = _id;
+        List<string> QuizChoices = _choices;
         int CorrectAnswer;
-        int[] VoteCount;
     }
 }
 
