@@ -69,6 +69,11 @@ public class QuizManager
     {
         if (participant.AnswerIndex == quizzes[QuizId].CurrentQuestion)
         {
+            if (quizzes[QuizId].Questions[currQuestion].CorrectAnswer == answer)
+            {
+                participant.TimeStamp = DateTime.Now;
+            }
+
             NextQuestion(QuizId);
             OnStateChanged?.Invoke();
         }
