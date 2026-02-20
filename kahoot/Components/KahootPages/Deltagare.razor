@@ -5,18 +5,28 @@
 
 <h1>här ska frågorna presenteras</h1>
 
+@if (QuestionId == null)
+{
+    <p>No Question Initiated</p>
+}
+else
+{
+    <p></p>
+}
 
 
 <button @onsubmit="Submit">Submit</button>
 
 @code
 {
+    [Parameter]
     public string? QuestionId { get; set; }
-    Question Question;
+    Question? Question;
 
     protected override void OnParametersSet()
     {
         Question = manager.GetCurrentQuestion();
+        QuestionId = Question.ID;
     }
 
     public void Submit()
