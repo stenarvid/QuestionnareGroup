@@ -28,36 +28,6 @@ public class QuizManager
                 new List<string>() { "Bertil", "John", "Göran", "Sara" },
                 1
             )
-        );
-        quiz.Questions.Add
-(
-    new Question
-    (
-        id,
-        "Second Question",
-        new List<string>() { "Bertil", "John", "Göran", "Sara" },
-        2
-    )
-);
-        quiz.Questions.Add
-(
-    new Question
-    (
-        id,
-        "Third Question",
-        new List<string>() { "Bertil", "John", "Göran", "Sara" },
-        3
-    )
-);
-        quiz.Questions.Add
-(
-    new Question
-    (
-        id,
-        "Fourth Question",
-        new List<string>() { "Bertil", "John", "Göran", "Sara" },
-        4
-    )
 );
 
         quizzes[quiz.ID] = quiz;

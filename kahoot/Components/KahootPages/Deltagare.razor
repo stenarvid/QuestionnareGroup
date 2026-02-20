@@ -12,29 +12,36 @@
 }
 else
 {
-    <p></p>
+    <p>@Question.Text</p>
 }
 
 
-<button @onsubmit="Submit">Submit</button>
+<button @onclick="Submit">Submit</button>
 
 @code
 {
     [Parameter]
     public string? QuestionId { get; set; }
+
+    [Parameter]
     public string? QuizId { get; set; }
     Question? Question;
     Quiz? Quiz;
 
     protected override void OnParametersSet()
     {
-        QuestionId = Question.ID;
-        Quiz = manager.GetQuizByID(QuizId);
+        if (!string.IsNullOrEmpty(QuizId))
+        {
+            manager.initialize("2");
+            Quiz = manager.GetQuizByID(QuizId);
+            Question = Quiz.Questions[Quiz.CurrentQuestion];
+        }
     }
 
     public void Submit()
     {
         Console.WriteLine("Submit answer");
         manager.NextQuestion(QuizId);
+        Question = Quiz.Questions[Quiz.CurrentQuestion];
     }
 }
