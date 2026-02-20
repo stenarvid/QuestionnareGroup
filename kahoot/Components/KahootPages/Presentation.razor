@@ -1,17 +1,29 @@
 @rendermode InteractiveServer
-@page "/quiz/{Id:int}/present"
+@page "/quiz/{QuizId}/present"
 @using Models.Quiz
 @inject QuizManager manager;
 
-<h1>Quiz: @manager.GetQuiz(new Quiz()).Title</h1>
+@if (quiz == null)
+{
+    <h1>Quiz not found</h1>
+}
+else
+{
+    <h1>@quiz.Title</h1>
+}
+
 
 @code
 {
     [Parameter]
     public string? QuizId { get; set; }
+    Quiz quiz;
 
     void OnParameterSet()
     {
-
+        if (QuizId == null)
+        {
+            quiz = manager.GetQuizByID(QuizId);
+        }
     }
 }

@@ -25,6 +25,7 @@ public class QuizManager
         {
             if (quiz.ID == id)
             {
+                quiz.Title = "Hej";
                 return quiz;
             }
         }
