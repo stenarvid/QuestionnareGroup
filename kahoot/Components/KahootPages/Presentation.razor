@@ -9,6 +9,7 @@
 }
 else
 {
+    OnParametersSet();
     <h1>@quiz.Title</h1>
 }
 
@@ -19,9 +20,10 @@ else
     public string? QuizId { get; set; }
     Quiz quiz;
 
-    void OnParameterSet()
+    protected override void OnParametersSet()
     {
-        if (QuizId == null)
+        manager.initialize(QuizId);
+        if (QuizId != null)
         {
             quiz = manager.GetQuizByID(QuizId);
         }
