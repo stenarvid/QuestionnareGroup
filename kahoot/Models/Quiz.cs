@@ -8,5 +8,5 @@ public class Quiz
     public string Title { get; set; }
 
     public List<Question> Questions { get; set; }
-    public string CurrentQuestion { get; set; } // refers to QuestionID
+    public int CurrentQuestion { get; set; } // refers to QuestionID
 }
