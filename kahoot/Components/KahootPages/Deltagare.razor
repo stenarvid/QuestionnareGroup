@@ -1,15 +1,27 @@
 @rendermode InteractiveServer
-@page "/quiz/{Id:int}"
+@page "/quiz/{QuestionId}"
+@using Models.Questions
 @inject QuizManager manager;
-
-
 
 <h1>här ska frågorna presenteras</h1>
 
+
+
+<button @onsubmit="Submit">Submit</button>
+
 @code
 {
+    public string? QuestionId { get; set; }
+    Question Question;
+
+    protected override void OnParametersSet()
+    {
+        Question = manager.GetCurrentQuestion();
+    }
+
     public void Submit()
     {
-
+        Console.WriteLine("Submit answer");
+        manager.NextQuestion();
     }
 }

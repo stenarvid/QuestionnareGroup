@@ -5,7 +5,7 @@ using Models.Quiz;
 
 public class QuizManager
 {
-    private Quiz quiz = new Quiz();
+    private Quiz quiz = new Quiz("test", "First Quiz");
     private List<Quiz>? quizzes = new();
     private List<Question>? questions = new();
     private int currQuestion = 0;
@@ -38,12 +38,17 @@ public class QuizManager
         return null;
     }
 
+    public Question GetCurrentQuestion()
+    {
+        return questions[currQuestion];
+    }
+
     public void SubmitAnswer(Participant participant)
     {
 
     }
 
-    public void NextQuestion(Quiz quiz)
+    public void NextQuestion()
     {
 
     }
