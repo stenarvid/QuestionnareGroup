@@ -10,10 +10,10 @@ public class QuizManager
     private List<Question>? questions = new();
     private int currQuestion = 0;
 
-    public void initialize()
+    public void initialize(string id)
     {
-        quiz.ID = "Hej";
-        quiz.Title = "hundShow";
+        quiz.ID = id;
+        quiz.Title = " ";
         quiz.Questions = questions;
         quiz.CurrentQuestion = 0;
         quizzes.Add(quiz);
@@ -25,7 +25,7 @@ public class QuizManager
         {
             if (quiz.ID == id)
             {
-                quiz.Title = "Hej";
+                quiz.Title = "HundShow";
                 return quiz;
             }
         }
