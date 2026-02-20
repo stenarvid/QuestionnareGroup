@@ -2,7 +2,7 @@ Klasser :
 
 QUIZ
 ____
-ID [int]
+ID [string]
 Title = "Game Title" [string]
 Questions[] [list<Question>]
 CurrentQuestion [QuestionID(string)]
@@ -20,7 +20,7 @@ PARTICIPANT
 ___________
 ParticipantID [string]
 Name [Dictionary<string, string>]
-Answer[Dictionary<Question, int>]
+Answers [Dictionary<Question, int>]
 
 
 

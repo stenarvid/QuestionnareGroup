@@ -1,5 +1,5 @@
 
-namespace Models.Question;
+namespace Models.Questions;
 
 public class Question
 {
