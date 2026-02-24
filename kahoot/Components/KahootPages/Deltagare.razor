@@ -1,38 +1,33 @@
 @rendermode InteractiveServer
-@page "/quiz/{QuizId}/{QuestionId}"
+@page "/quiz/{QuizId}"
+@using Models.Participant
 @using Models.Questions
 @using Models.Quiz
 @inject QuizManager manager;
+@inject NavigationManager navigationManager;
 
 <h1>här ska frågorna presenteras</h1>
 
-@if (QuestionId == null)
-{
-    <p>No Question Initiated</p>
-}
-else
-{
-    <p>@Question.Text</p>
-}
-
-
-<button @onclick="Submit">Submit</button>
+<ul>
+    @foreach (var choice in Question.QuizChoices)
+    {
+        <button @onclick="Submit">@choice</button>
+    }
+</ul>
 
 @code
 {
     [Parameter]
-    public string? QuestionId { get; set; }
-
-    [Parameter]
     public string? QuizId { get; set; }
     Question? Question;
     Quiz? Quiz;
+    public Participant participant = new();
 
     protected override void OnParametersSet()
     {
         if (!string.IsNullOrEmpty(QuizId))
         {
-            manager.initialize("2");
+            manager.initialize(QuizId);
             Quiz = manager.GetQuizByID(QuizId);
             Question = Quiz.Questions[Quiz.CurrentQuestion];
         }
@@ -40,9 +35,10 @@ else
 
     public void Submit()
     {
-        Console.WriteLine("Submit answer");
-        manager.NextQuestion(QuizId);
+        participant.ParticipantID = Guid.NewGuid().ToString();
         Question = Quiz.Questions[Quiz.CurrentQuestion];
+        manager.SubmitAnswer(participant, QuizId, participant.AnswerIndex);
+        navigationManager.NavigateTo($"/present/{QuizId}");
         StateHasChanged();
     }
 }

@@ -1,0 +1,28 @@
+@rendermode InteractiveServer
+@page "/start"
+@using Models.Quiz
+@inject QuizManager manager
+@inject NavigationManager navigationManager;
+
+<h1>Skapa Ny Quiz</h1>
+<EditForm Model="@newQuizID" OnValidSubmit="@NewQuiz">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div>
+        <label for="newQuizID">Quiz ID:</label>
+        <InputText id="newQuizID" @bind-Value="@newQuizID" />
+    </div>
+    <button type="submit">Skapa Quiz</button>
+</EditForm>
+
+@code
+{
+    private string newQuizID = string.Empty;
+
+    private void NewQuiz()
+    {
+        manager.initialize(newQuizID);
+        navigationManager.NavigateTo($"/quiz/{newQuizID}");
+    }
+}

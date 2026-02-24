@@ -10,13 +10,14 @@ public class QuizManager
     private Dictionary<string, Quiz> quizzes = new();
     private List<Question>? questions = new();
     private int currQuestion = 0;
+    private List<Participant> participants = new();
 
     public event Action? OnStateChanged;
 
     public void initialize(string id)
     {
         quiz.ID = id;
-        quiz.Title = " ";
+        quiz.Title = "Ny Quiz";
         quiz.Questions = questions;
         quiz.CurrentQuestion = 0;
         quiz.Questions.Add
@@ -37,7 +38,7 @@ public class QuizManager
                 id,
                 "Second Question",
                 new List<string>() { "Bertil", "John", "Göran", "Sara" },
-                2 
+                2
             )
         );
 
@@ -67,8 +68,5 @@ public class QuizManager
             quizzes[QuizId].CurrentQuestion++;
             OnStateChanged?.Invoke();
         }
-        //currQuestion++;
-        //quizzes[QuizId].CurrentQuestion++;
-        //OnStateChanged?.Invoke();
     }
 }

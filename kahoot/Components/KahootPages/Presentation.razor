@@ -1,31 +1,20 @@
 @rendermode InteractiveServer
-@page "/quiz/{QuizId}/present"
+@page "/present/{QuizId}"
+@using Models.Participant
+@using Models.Questions
 @using Models.Quiz
 @inject QuizManager manager;
+@inject NavigationManager navigationManager;
 
-@if (quiz == null)
-{
-    <h1>Quiz not found</h1>
-}
-else
-{
-    OnParametersSet();
-    <h1>@quiz.Title</h1>
-}
 
+<h1>Answers</h1>
 
 @code
 {
     [Parameter]
     public string? QuizId { get; set; }
-    Quiz quiz;
+    Question? Question;
+    Quiz? Quiz;
 
-    protected override void OnParametersSet()
-    {
-        manager.initialize(QuizId);
-        if (QuizId != null)
-        {
-            quiz = manager.GetQuizByID(QuizId);
-        } 
-    }
+
 }
